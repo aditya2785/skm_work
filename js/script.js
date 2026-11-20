@@ -315,14 +315,14 @@ chapterChoices.forEach(choice => {
                 "rgba(237,129,152,.12)";
 
             choiceResult.innerHTML =
-                "Exactly. ✦<br>" +
-                "We went to the Sky Walk.";
+                "Sharp memory. ✦<br>" +
+                "Yes, Temple it is.";
 
         } else {
 
             choiceResult.innerHTML =
                 "Hmm... beautiful guess. 😌<br>" +
-                "But our story had another stop.";
+                "But that comes later...✦" 
 
         }
 
