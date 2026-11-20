@@ -574,8 +574,8 @@ wrongFinal.forEach(button => {
     button.addEventListener("click", () => {
 
         finalAnswer.innerHTML =
-            "You wish 😝... ❤️<br>" +
-            "but that's not where our story ends.";
+            "Anytime... ❤️<br>" 
+            
 
     });
 
@@ -585,9 +585,7 @@ wrongFinal.forEach(button => {
 foreverButton.addEventListener("click", () => {
 
     finalAnswer.innerHTML =
-        "Exactly.<br>" +
-        "We'll marry soon biwi. " +
-        "❤️";
+        "Anytime... ❤️<br>" 
 
 
     createHeartBurst();
