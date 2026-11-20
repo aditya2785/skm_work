@@ -1,0 +1,3384 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&family=Parisienne&display=swap');
+
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #080609;
+    color: #f8eef1;
+
+    font-family: "DM Sans", sans-serif;
+
+    overflow-x: hidden;
+}
+
+button {
+    font-family: inherit;
+}
+
+img {
+    display: block;
+    width: 100%;
+}
+
+
+/* =====================================================
+   VARIABLES
+===================================================== */
+
+:root {
+
+    --pink: #ed8198;
+    --soft-pink: #d89aaa;
+
+    --cream: #f4e9dc;
+
+    --text: #f7eef1;
+    --muted: #b9aeb3;
+
+    --dark: #080609;
+
+    --border: rgba(255,255,255,.10);
+
+}
+
+
+/* =====================================================
+   GLOBAL TYPOGRAPHY
+===================================================== */
+
+h1,
+h2,
+h3 {
+    font-family: "Cormorant Garamond", serif;
+
+    font-weight: 500;
+}
+
+section {
+    position: relative;
+}
+
+.chapter-label {
+    color: var(--soft-pink);
+
+    text-transform: uppercase;
+
+    letter-spacing: 4px;
+
+    font-size: 10px;
+
+    margin-bottom: 30px;
+}
+
+
+/* =====================================================
+   STARS
+===================================================== */
+
+.stars {
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+.star {
+    position: absolute;
+
+    color: rgba(255,255,255,.6);
+
+    animation:
+        twinkle 4s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+
+    0%,
+    100% {
+        opacity: .1;
+        transform: scale(.8);
+    }
+
+    50% {
+        opacity: .8;
+        transform: scale(1.2);
+    }
+
+}
+
+
+/* =====================================================
+   MUSIC BUTTON
+===================================================== */
+
+.music-button {
+    position: fixed;
+
+    right: 25px;
+    top: 25px;
+
+    z-index: 100;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 10px 16px;
+
+    border-radius: 50px;
+
+    border: 1px solid rgba(255,255,255,.15);
+
+    background: rgba(10,7,9,.65);
+
+    backdrop-filter: blur(15px);
+
+    color: white;
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+.music-button:hover {
+    border-color: var(--pink);
+
+    transform: translateY(-2px);
+}
+
+.music-icon {
+    color: var(--pink);
+
+    font-size: 18px;
+}
+
+.music-text {
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero {
+    min-height: 100svh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 50px 25px;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 45%,
+            #2a1720 0%,
+            #110a0e 40%,
+            #080609 75%
+        );
+}
+
+.hero::after {
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    background: rgba(219,102,133,.08);
+
+    border-radius: 50%;
+
+    filter: blur(100px);
+
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 850px;
+}
+
+.eyebrow {
+    color: #c894a2;
+
+    text-transform: uppercase;
+
+    letter-spacing: 5px;
+
+    font-size: 10px;
+
+    margin-bottom: 35px;
+}
+
+.hero h1 {
+    font-size: clamp(70px, 13vw, 150px);
+
+    line-height: .78;
+
+    letter-spacing: -4px;
+}
+
+.hero h1 span {
+    display: block;
+
+    color: var(--pink);
+
+    font-style: italic;
+}
+
+.hero-description {
+    color: var(--muted);
+
+    line-height: 1.9;
+
+    font-size: 16px;
+
+    margin: 50px auto;
+
+    max-width: 500px;
+}
+
+.enter-button {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 17px 27px;
+
+    border-radius: 50px;
+
+    border: 1px solid rgba(255,255,255,.2);
+
+    background: rgba(255,255,255,.04);
+
+    color: white;
+
+    cursor: pointer;
+
+    transition: .4s;
+}
+
+.enter-button:hover {
+    background: var(--pink);
+
+    border-color: var(--pink);
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 15px 40px rgba(237,129,152,.2);
+}
+
+.enter-button b {
+    font-size: 18px;
+
+    font-weight: 400;
+}
+
+.scroll-indicator {
+    position: absolute;
+
+    bottom: 35px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    color: #806c73;
+
+    text-transform: uppercase;
+
+    letter-spacing: 3px;
+
+    font-size: 8px;
+}
+
+.scroll-indicator div {
+    width: 1px;
+
+    height: 40px;
+
+    background: #806c73;
+
+    margin: 10px auto 0;
+}
+
+
+/* =====================================================
+   CHAPTER ONE
+===================================================== */
+
+.chapter {
+    min-height: 100svh;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 100px 8vw;
+}
+
+.sikkim-section {
+    background:
+        radial-gradient(
+            circle at 75% 50%,
+            rgba(111,56,79,.18),
+            transparent 40%
+        );
+}
+
+.chapter-inner {
+    max-width: 900px;
+
+    margin: auto;
+}
+
+.chapter h2 {
+    font-size: clamp(65px, 10vw, 125px);
+
+    line-height: .85;
+
+    margin-bottom: 45px;
+}
+
+.chapter h2 em {
+    color: var(--pink);
+
+    font-style: italic;
+}
+
+.chapter-text {
+    max-width: 600px;
+
+    color: var(--muted);
+
+    line-height: 2;
+
+    font-size: 17px;
+}
+
+.chapter-date {
+    margin-top: 50px;
+
+    color: #75666c;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+}
+
+
+/* =====================================================
+   MEMORY
+===================================================== */
+
+.memory-section {
+    min-height: 110svh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10vw;
+
+    padding: 100px 8vw;
+
+    background: #0b080a;
+}
+
+.memory-photo {
+    width: min(470px, 55vw);
+
+    position: relative;
+
+    transform: rotate(-3deg);
+
+    box-shadow:
+        0 40px 100px rgba(0,0,0,.7);
+}
+
+.memory-photo img {
+    aspect-ratio: 4 / 5;
+
+    object-fit: cover;
+}
+
+.photo-number {
+    position: absolute;
+
+    bottom: 15px;
+
+    right: 20px;
+
+    color: white;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 20px;
+
+    opacity: .7;
+}
+
+.memory-copy {
+    max-width: 420px;
+}
+
+.memory-copy h2 {
+    font-size: clamp(70px, 9vw, 115px);
+
+    line-height: .8;
+
+    margin-bottom: 35px;
+}
+
+.memory-copy h2 em {
+    color: var(--pink);
+
+    font-style: italic;
+}
+
+.memory-copy p {
+    color: var(--muted);
+
+    line-height: 1.9;
+
+    font-size: 16px;
+}
+
+.memory-copy strong {
+    display: block;
+
+    font-family: "Cormorant Garamond", serif;
+
+    color: var(--pink);
+
+    font-size: 55px;
+
+    margin-top: 30px;
+}
+
+.small-note {
+    display: block;
+
+    color: #806e74;
+
+    font-size: 11px;
+
+    margin-top: -5px;
+
+    font-style: italic;
+}
+
+
+/* =====================================================
+   GAME ONE
+===================================================== */
+
+.game-section {
+    min-height: 100svh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 80px 20px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #24131b,
+            #09070a 65%
+        );
+}
+
+.game-card {
+    width: min(700px, 100%);
+
+    text-align: center;
+}
+
+.game-card h2 {
+    font-size: clamp(50px, 7vw, 80px);
+
+    line-height: .95;
+
+    margin-bottom: 50px;
+}
+
+.answers {
+    display: grid;
+
+    gap: 13px;
+}
+
+.answer {
+    width: 100%;
+
+    padding: 18px 20px;
+
+    background: rgba(255,255,255,.035);
+
+    border: 1px solid var(--border);
+
+    border-radius: 12px;
+
+    color: #d9cdd1;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+.answer:hover {
+    border-color: rgba(237,129,152,.5);
+
+    background: rgba(237,129,152,.06);
+
+    transform: translateX(5px);
+}
+
+.game-result {
+    min-height: 50px;
+
+    margin-top: 30px;
+
+    color: var(--pink);
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 27px;
+}
+
+
+/* =====================================================
+   LAKE
+===================================================== */
+
+.lake-section {
+    min-height: 120svh;
+
+    padding: 100px 8vw;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8vw;
+
+    overflow: hidden;
+}
+
+.lake-content {
+    max-width: 520px;
+
+    z-index: 2;
+}
+
+.lake-content h2 {
+    font-size: clamp(60px, 8vw, 105px);
+
+    line-height: .85;
+
+    margin-bottom: 40px;
+}
+
+.lake-content h2 em {
+    color: var(--pink);
+
+    font-style: italic;
+}
+
+.lake-content > p:not(.chapter-label):not(.lake-last-line) {
+    color: var(--muted);
+
+    line-height: 2;
+
+    font-size: 16px;
+}
+
+.lake-line {
+    height: 1px;
+
+    width: 100px;
+
+    background: var(--pink);
+
+    margin: 45px 0 25px;
+}
+
+.lake-last-line {
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 35px;
+}
+
+.lake-last-line em {
+    color: var(--pink);
+
+    font-style: italic;
+}
+
+.lake-photo {
+    width: min(420px, 45vw);
+
+    transform: rotate(4deg);
+
+    box-shadow:
+        0 40px 100px rgba(0,0,0,.7);
+}
+
+.lake-photo img {
+    aspect-ratio: 4 / 5;
+
+    object-fit: cover;
+}
+
+
+/* =====================================================
+   DREAM
+===================================================== */
+
+.dream-section {
+    min-height: 120svh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #28161f,
+            #080609 65%
+        );
+}
+
+.dream-center {
+    text-align: center;
+
+    position: relative;
+
+    z-index: 3;
+
+    max-width: 500px;
+}
+
+.dream-center span {
+    color: #a9959b;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-style: italic;
+
+    font-size: 22px;
+}
+
+.dream-center h2 {
+    font-size: clamp(100px, 15vw, 180px);
+
+    color: var(--pink);
+
+    font-style: italic;
+
+    line-height: .7;
+
+    margin-top: 30px;
+}
+
+.dream-photo {
+    position: absolute;
+
+    width: min(300px, 30vw);
+
+    box-shadow:
+        0 40px 90px rgba(0,0,0,.7);
+}
+
+.dream-photo img {
+    aspect-ratio: 4 / 5;
+
+    object-fit: cover;
+}
+
+.dream-one {
+    left: 10%;
+
+    top: 15%;
+
+    transform: rotate(-8deg);
+}
+
+.dream-two {
+    right: 10%;
+
+    bottom: 12%;
+
+    transform: rotate(8deg);
+}
+
+
+/* =====================================================
+   RURI
+===================================================== */
+
+.ruri-section {
+
+    min-height: 110svh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 9vw;
+
+    padding: 100px 8vw;
+
+    background:
+        radial-gradient(
+            circle at 30% 50%,
+            rgba(111,56,79,.16),
+            transparent 45%
+        );
+
+}
+
+
+.ruri-photo {
+
+    width: min(420px, 50vw);
+
+    transform: rotate(3deg);
+
+    position: relative;
+
+    box-shadow:
+        0 40px 100px rgba(0,0,0,.7);
+
+}
+
+
+.ruri-photo img {
+
+    aspect-ratio: 2.5 / 3.5;
+
+    object-fit: cover;
+
+}
+
+
+.ruri-content {
+
+    max-width: 500px;
+
+}
+
+
+.ruri-content h2 {
+
+    font-size: clamp(
+        60px,
+        8vw,
+        105px
+    );
+
+    line-height: .85;
+
+    margin-bottom: 40px;
+
+}
+
+
+.ruri-content h2 em {
+
+    color: var(--pink);
+
+    font-style: italic;
+
+}
+
+
+.ruri-content > p:not(.chapter-label):not(.ruri-ending) {
+
+    color: var(--muted);
+
+    line-height: 2;
+
+    font-size: 16px;
+
+}
+
+
+.ruri-line {
+
+    width: 80px;
+
+    height: 1px;
+
+    background: var(--pink);
+
+    margin: 45px 0 25px;
+
+}
+
+
+.ruri-ending {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 27px;
+
+    line-height: 1.5;
+
+    color: #d8cbd0;
+
+}
+
+
+.ruri-ending em {
+
+    color: var(--pink);
+
+}
+
+
+/* =====================================================
+   RURI GAME
+===================================================== */
+
+.ruri-game-section {
+
+    min-height: 90svh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 80px 20px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #24131b,
+            #09070a 65%
+        );
+
+}
+
+
+.ruri-game {
+
+    width: min(700px, 100%);
+
+}
+
+
+.ruri-game h2 {
+
+    font-size: clamp(
+        55px,
+        8vw,
+        90px
+    );
+
+    line-height: .9;
+
+    margin-bottom: 50px;
+
+}
+
+
+.ruri-answers {
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 14px;
+
+}
+
+
+.ruri-answer {
+
+    min-height: 90px;
+
+    padding: 20px;
+
+    border-radius: 14px;
+
+    border: 1px solid var(--border);
+
+    background: rgba(255,255,255,.025);
+
+    color: #ddd1d5;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 24px;
+
+    cursor: pointer;
+
+    transition: .3s;
+
+}
+
+
+.ruri-answer:hover {
+
+    border-color: var(--pink);
+
+    transform: translateY(-4px);
+
+}
+
+
+.ruri-answer.ruri-correct {
+
+    border-color: var(--pink);
+
+    background:
+        rgba(237,129,152,.12);
+
+}
+
+
+.ruri-result {
+
+    min-height: 60px;
+
+    margin-top: 30px;
+
+    color: var(--pink);
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 27px;
+
+}
+
+/* =====================================================
+   CHOICE GAME
+===================================================== */
+
+.choice-section {
+    min-height: 100svh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 80px 20px;
+}
+
+.choice-card {
+    width: min(850px, 100%);
+
+    text-align: center;
+}
+
+.choice-card h2 {
+    font-size: clamp(55px, 8vw, 95px);
+
+    line-height: .9;
+
+    margin-bottom: 20px;
+}
+
+.choice-subtitle {
+    color: #88777d;
+
+    margin-bottom: 50px;
+
+    font-size: 13px;
+}
+
+.choice-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 15px;
+}
+
+.chapter-choice {
+    min-height: 120px;
+
+    padding: 25px;
+
+    border: 1px solid var(--border);
+
+    background: rgba(255,255,255,.025);
+
+    color: #e2d7da;
+
+    border-radius: 15px;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 30px;
+
+    cursor: pointer;
+
+    transition: .35s;
+}
+
+.chapter-choice span {
+    display: block;
+
+    color: #806e75;
+
+    font-family: "DM Sans", sans-serif;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 10px;
+}
+
+.chapter-choice:hover {
+    transform: translateY(-5px);
+
+    border-color: var(--pink);
+
+    background: rgba(237,129,152,.07);
+}
+
+.choice-result {
+    min-height: 50px;
+
+    margin-top: 30px;
+
+    color: var(--pink);
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 28px;
+}
+
+
+/* =====================================================
+   SKYWALK VIDEO
+===================================================== */
+
+.skywalk-section {
+    position: relative;
+
+    min-height: 100svh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    overflow: hidden;
+
+    background: #080609;
+}
+
+
+/* -----------------------------------------
+   BACKGROUND VIDEO
+----------------------------------------- */
+
+.skywalk-video {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    z-index: 0;
+
+    pointer-events: none;
+}
+
+
+/* -----------------------------------------
+   CINEMATIC OVERLAY
+----------------------------------------- */
+
+.skywalk-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 1;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(5, 4, 6, 0.35),
+            rgba(5, 4, 6, 0.55)
+        );
+
+    pointer-events: none;
+}
+
+
+/* -----------------------------------------
+   STORY CONTENT
+----------------------------------------- */
+
+.skywalk-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: min(700px, 90vw);
+
+    padding: 30px;
+}
+
+
+.skywalk-content h2 {
+
+    font-size: clamp(
+        70px,
+        11vw,
+        130px
+    );
+
+    line-height: .8;
+
+    margin-bottom: 40px;
+
+    text-shadow:
+        0 5px 30px rgba(0,0,0,.5);
+}
+
+
+.skywalk-content h2 em {
+
+    color: var(--pink);
+
+    font-style: italic;
+}
+
+
+.skywalk-content > p:not(.chapter-label) {
+
+    color: #eee5e8;
+
+    line-height: 2;
+
+    font-size: 17px;
+
+    text-shadow:
+        0 3px 15px rgba(0,0,0,.8);
+}
+
+
+.skywalk-quote {
+
+    margin-top: 60px;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    color: var(--pink);
+
+    font-size: 30px;
+
+    font-style: italic;
+
+    text-shadow:
+        0 3px 20px rgba(0,0,0,.7);
+}
+
+/* =====================================================
+   HUSBAND GAME
+===================================================== */
+
+.husband-game {
+    min-height: 110svh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 100px 20px;
+
+    background:
+        radial-gradient(
+            circle,
+            #2a151e,
+            #09070a 65%
+        );
+}
+
+.husband-game-inner {
+    width: 100%;
+
+    max-width: 600px;
+}
+
+.husband-game h2 {
+    font-size: clamp(65px, 9vw, 100px);
+
+    line-height: .8;
+}
+
+.question {
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 35px;
+
+    color: #d5c8cc;
+
+    margin: 35px 0;
+}
+
+.husband-photo {
+    position: relative;
+
+    width: min(310px, 65vw);
+
+    margin: auto;
+
+    border-radius: 3px;
+
+    transform: rotate(-2deg);
+
+    box-shadow:
+        0 40px 100px rgba(0,0,0,.7);
+}
+
+.husband-photo img {
+    aspect-ratio: 4 / 5;
+
+    object-fit: cover;
+}
+
+.photo-glow {
+    position: absolute;
+
+    inset: -30px;
+
+    z-index: -1;
+
+    background: rgba(237,129,152,.15);
+
+    filter: blur(50px);
+
+    border-radius: 50%;
+}
+
+.love-buttons {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    margin-top: 35px;
+}
+
+.love-buttons button {
+    padding: 15px 30px;
+
+    border-radius: 50px;
+
+    cursor: pointer;
+
+    transition: .2s;
+}
+
+.yes-button {
+    background: var(--pink);
+
+    border: 1px solid var(--pink);
+
+    color: white;
+
+    box-shadow:
+        0 10px 30px rgba(237,129,152,.2);
+}
+
+.yes-button:hover {
+    transform: scale(1.05);
+}
+
+.no-button {
+    background: transparent;
+
+    border: 1px solid rgba(255,255,255,.2);
+
+    color: #a99ba0;
+
+    position: relative;
+}
+
+.husband-message {
+    min-height: 50px;
+
+    margin-top: 25px;
+
+    color: var(--pink);
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 28px;
+}
+
+
+/* =====================================================
+   DISTANCE
+===================================================== */
+
+.distance-section {
+
+    min-height: 110svh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    overflow: hidden;
+
+    position: relative;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            #171016 0%,
+            #09070a 55%,
+            #050406 100%
+        );
+}
+
+
+/* =====================================================
+   DISTANCE STARS
+===================================================== */
+
+.distance-stars {
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+}
+
+
+/* Individual star */
+
+.distance-star {
+
+    position: absolute;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 12px;
+
+}
+
+
+/* glowing point */
+
+.distance-star span {
+
+    width: 7px;
+
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: white;
+
+    box-shadow:
+        0 0 8px white,
+        0 0 20px var(--pink),
+        0 0 45px var(--pink);
+
+    animation:
+        distanceGlow 4s ease-in-out infinite;
+
+}
+
+
+/* labels */
+
+.distance-star small {
+
+    color: #75666d;
+
+    font-size: 9px;
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+
+}
+
+
+/* YOU */
+
+.you-star {
+
+    left: 17%;
+
+    top: 28%;
+
+}
+
+
+/* HER */
+
+.her-star {
+
+    right: 17%;
+
+    bottom: 28%;
+
+    animation-delay: 1s;
+
+}
+
+
+/* =====================================================
+   LITTLE STARS BETWEEN US
+===================================================== */
+
+.connecting-stars {
+
+    position: absolute;
+
+    left: 23%;
+
+    right: 23%;
+
+    top: 50%;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    color: rgba(255,255,255,.25);
+
+    font-size: 22px;
+
+}
+
+
+.connecting-stars i {
+
+    font-style: normal;
+
+    animation:
+        tinyTwinkle 3s ease-in-out infinite;
+
+}
+
+
+.connecting-stars i:nth-child(2) {
+    animation-delay: .5s;
+}
+
+.connecting-stars i:nth-child(3) {
+    animation-delay: 1s;
+}
+
+.connecting-stars i:nth-child(4) {
+    animation-delay: 1.5s;
+}
+
+.connecting-stars i:nth-child(5) {
+    animation-delay: 2s;
+}
+
+.connecting-stars i:nth-child(6) {
+    animation-delay: 2.5s;
+}
+
+
+/* =====================================================
+   STAR ANIMATION
+===================================================== */
+
+@keyframes distanceGlow {
+
+    0%,
+    100% {
+
+        opacity: .45;
+
+        transform:
+            scale(.8);
+
+    }
+
+    50% {
+
+        opacity: 1;
+
+        transform:
+            scale(1.3);
+
+    }
+
+}
+
+
+@keyframes tinyTwinkle {
+
+    0%,
+    100% {
+
+        opacity: .15;
+
+    }
+
+    50% {
+
+        opacity: .7;
+
+    }
+
+}
+
+/* =====================================================
+   DISTANCE · THE QUIET CHAPTER
+===================================================== */
+
+.distance-section {
+
+    position: relative;
+
+    width: 100%;
+
+    min-height: 100svh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            ellipse at 50% 45%,
+            #21141b 0%,
+            #130c11 35%,
+            #080609 70%,
+            #040305 100%
+        );
+
+}
+
+
+/* =====================================================
+   SOFT MOON
+===================================================== */
+
+.distance-moon {
+
+    position: absolute;
+
+    width: clamp(100px, 11vw, 160px);
+
+    height: clamp(100px, 11vw, 160px);
+
+    border-radius: 50%;
+
+    top: 7%;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #fffaf4,
+            #e8d8d9 45%,
+            #a9949b 100%
+        );
+
+    opacity: .10;
+
+    filter: blur(.5px);
+
+    box-shadow:
+        0 0 50px rgba(255,220,230,.10),
+        0 0 120px rgba(237,129,152,.07);
+
+}
+
+
+/* =====================================================
+   DISTANCE STARS
+===================================================== */
+
+.distance-stars {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    pointer-events: none;
+
+}
+
+
+/* =====================================================
+   ME / YOU STAR
+===================================================== */
+
+.distance-star {
+
+    position: absolute;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 9px;
+
+}
+
+
+/* glowing star */
+
+.distance-star span {
+
+    display: block;
+
+    width: 8px;
+
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: #fff;
+
+    box-shadow:
+        0 0 8px rgba(255,255,255,.9),
+        0 0 20px var(--pink),
+        0 0 45px rgba(237,129,152,.55);
+
+    animation:
+        distanceGlow 3.5s ease-in-out infinite;
+
+}
+
+
+/* ME */
+
+.you-star {
+
+    left: 13%;
+
+    top: 27%;
+
+}
+
+
+/* YOU */
+
+.her-star {
+
+    right: 13%;
+
+    top: 68%;
+
+    animation-delay: 1.5s;
+
+}
+
+
+/* labels */
+
+.distance-star small {
+
+    color: rgba(220,205,211,.55);
+
+    font-family:
+        "DM Sans",
+        sans-serif;
+
+    font-size: 8px;
+
+    font-weight: 400;
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+
+}
+
+
+/* =====================================================
+   CONNECTING STARS
+===================================================== */
+
+.connecting-stars {
+
+    position: absolute;
+
+    width: 45%;
+
+    height: 25px;
+
+    left: 27.5%;
+
+    top: 49%;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    transform:
+        rotate(25deg);
+
+    transform-origin: center;
+
+}
+
+
+/* tiny stars */
+
+.connecting-stars i {
+
+    display: block;
+
+    font-style: normal;
+
+    color: rgba(255,255,255,.28);
+
+    font-size: 13px;
+
+    animation:
+        tinyTwinkle 4s ease-in-out infinite;
+
+}
+
+
+/* stagger */
+
+.connecting-stars i:nth-child(1) {
+    animation-delay: .2s;
+}
+
+.connecting-stars i:nth-child(2) {
+    animation-delay: .7s;
+}
+
+.connecting-stars i:nth-child(3) {
+    animation-delay: 1.2s;
+}
+
+.connecting-stars i:nth-child(4) {
+    animation-delay: 1.7s;
+}
+
+.connecting-stars i:nth-child(5) {
+    animation-delay: 2.2s;
+}
+
+.connecting-stars i:nth-child(6) {
+    animation-delay: 2.7s;
+}
+
+.connecting-stars i:nth-child(7) {
+    animation-delay: 3.2s;
+}
+
+
+/* =====================================================
+   FLOATING MEMORY MESSAGES
+===================================================== */
+
+.distance-memory {
+
+    position: absolute;
+
+    z-index: 1;
+
+    pointer-events: none;
+
+    color: rgba(220,200,207,.22);
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-style: italic;
+
+    font-size: 15px;
+
+    white-space: nowrap;
+
+    animation:
+        floatingMemory 7s ease-in-out infinite;
+
+}
+
+
+/* goodnight */
+
+.memory-one {
+
+    left: 7%;
+
+    top: 48%;
+
+}
+
+
+/* miss you */
+
+.memory-two {
+
+    right: 7%;
+
+    top: 39%;
+
+    animation-delay: 2s;
+
+}
+
+
+/* awake */
+
+.memory-three {
+
+    left: 13%;
+
+    bottom: 15%;
+
+    animation-delay: 4s;
+
+}
+
+
+/* tiny heart */
+
+.memory-four {
+
+    right: 17%;
+
+    bottom: 20%;
+
+    color: rgba(237,129,152,.38);
+
+    font-size: 25px;
+
+    animation-delay: 1s;
+
+}
+
+
+/* floating */
+
+@keyframes floatingMemory {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(0);
+
+        opacity: .18;
+
+    }
+
+    50% {
+
+        transform:
+            translateY(-10px);
+
+        opacity: .45;
+
+    }
+
+}
+
+
+/* =====================================================
+   MAIN CONTENT
+===================================================== */
+
+.distance-inner {
+
+    position: relative;
+
+    z-index: 5;
+
+    width: min(680px, 88vw);
+
+    padding: 30px 20px;
+
+}
+
+
+/* =====================================================
+   TITLE
+===================================================== */
+
+.distance-inner h2 {
+
+    margin-bottom: 32px;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(
+            58px,
+            8vw,
+            105px
+        );
+
+    line-height: .82;
+
+    font-weight: 500;
+
+    letter-spacing: -2px;
+
+    text-shadow:
+        0 5px 30px rgba(0,0,0,.7);
+
+}
+
+
+.distance-inner h2 em {
+
+    color: var(--pink);
+
+    font-style: italic;
+
+}
+
+
+/* =====================================================
+   THREE LITTLE LINES
+===================================================== */
+
+.distance-story {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(
+            23px,
+            2.5vw,
+            30px
+        );
+
+    color: #cfc1c6;
+
+    line-height: 1.35;
+
+}
+
+
+.distance-story p {
+
+    margin: 0;
+
+}
+
+
+/* =====================================================
+   THREE DOT PAUSE
+===================================================== */
+
+.distance-pause {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 7px;
+
+    margin: 25px 0;
+
+}
+
+
+.distance-pause span {
+
+    width: 4px;
+
+    height: 4px;
+
+    border-radius: 50%;
+
+    background: var(--pink);
+
+    opacity: .35;
+
+}
+
+
+.distance-pause span:nth-child(2) {
+
+    opacity: .8;
+
+}
+
+
+/* =====================================================
+   MAIN TEXT
+===================================================== */
+
+.distance-main-text {
+
+    max-width: 560px;
+
+    margin:
+        0 auto 28px;
+
+    color: #a99aa0;
+
+    line-height: 1.7;
+
+    font-size:
+        clamp(
+            13px,
+            1.5vw,
+            16px
+        );
+
+}
+
+
+/* =====================================================
+   ENDING
+===================================================== */
+
+.distance-ending {
+
+    max-width: 550px;
+
+    margin:
+        0 auto;
+
+    color: #918188;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(
+            19px,
+            2.2vw,
+            24px
+        );
+
+    line-height: 1.4;
+
+}
+
+
+.distance-ending em {
+
+    color: #d4bbc2;
+
+    font-style: italic;
+
+}
+
+
+/* =====================================================
+   HEART
+===================================================== */
+
+.distance-heart {
+
+    margin-top: 25px;
+
+}
+
+
+.distance-heart span {
+
+    display: block;
+
+    color: var(--pink);
+
+    font-size: 38px;
+
+    line-height: 1;
+
+    animation:
+        heartBeat 2.4s ease-in-out infinite;
+
+}
+
+
+.distance-heart p {
+
+    margin-top: 6px;
+
+    color: #74656c;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 17px;
+
+    font-style: italic;
+
+}
+
+
+/* =====================================================
+   HEART ANIMATION
+===================================================== */
+
+@keyframes heartBeat {
+
+    0%,
+    100% {
+
+        transform:
+            scale(1);
+
+        opacity: .45;
+
+    }
+
+    15% {
+
+        transform:
+            scale(1.16);
+
+        opacity: 1;
+
+    }
+
+    30% {
+
+        transform:
+            scale(1);
+
+        opacity: .65;
+
+    }
+
+}
+
+
+/* =====================================================
+   STAR ANIMATIONS
+===================================================== */
+
+@keyframes distanceGlow {
+
+    0%,
+    100% {
+
+        opacity: .35;
+
+        transform:
+            scale(.8);
+
+    }
+
+    50% {
+
+        opacity: 1;
+
+        transform:
+            scale(1.35);
+
+    }
+
+}
+
+
+@keyframes tinyTwinkle {
+
+    0%,
+    100% {
+
+        opacity: .1;
+
+        transform:
+            scale(.7);
+
+    }
+
+    50% {
+
+        opacity: .75;
+
+        transform:
+            scale(1.25);
+
+    }
+
+}
+
+
+/* =====================================================
+   BOTTOM MESSAGE
+===================================================== */
+
+.distance-bottom {
+
+    position: absolute;
+
+    bottom: 22px;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    color: #51464b;
+
+    font-size: 8px;
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+
+    white-space: nowrap;
+
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .distance-inner {
+
+        width: min(680px, 82vw);
+
+    }
+
+
+    .you-star {
+
+        left: 8%;
+
+        top: 26%;
+
+    }
+
+
+    .her-star {
+
+        right: 8%;
+
+        top: 70%;
+
+    }
+
+
+    .connecting-stars {
+
+        width: 50%;
+
+        left: 25%;
+
+        top: 50%;
+
+        transform:
+            rotate(25deg);
+
+    }
+
+
+    .memory-one {
+
+        left: 4%;
+
+    }
+
+
+    .memory-two {
+
+        right: 4%;
+
+    }
+
+
+
+/* =====================================================
+   RURI · TABLET
+===================================================== */
+
+.ruri-section {
+    flex-direction: column;
+    text-align: center;
+    gap: 70px;
+    padding: 100px 40px;
+}
+
+.ruri-photo {
+    width: min(460px, 70vw);
+}
+
+.ruri-content {
+    max-width: 600px;
+}
+
+.ruri-content h2 {
+    font-size: 75px;
+}
+
+.ruri-line {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ruri-ending {
+    font-size: 26px;
+}
+
+.ruri-game-section {
+    padding: 90px 30px;
+}
+
+.ruri-game {
+    width: min(700px, 90vw);
+}
+
+.ruri-game h2 {
+    font-size: 65px;
+}
+
+.ruri-answer {
+    font-size: 22px;
+    min-height: 85px;
+}
+}
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .distance-section {
+
+        min-height: 100svh;
+
+    }
+
+
+    /* moon */
+
+    .distance-moon {
+
+        width: 90px;
+
+        height: 90px;
+
+        top: 7%;
+
+        opacity: .08;
+
+    }
+
+
+    /* ME */
+
+    .you-star {
+
+        left: 7%;
+
+        top: 23%;
+
+    }
+
+
+    /* YOU */
+
+    .her-star {
+
+        right: 7%;
+
+        top: 73%;
+
+    }
+
+
+    /* connecting stars */
+
+    .connecting-stars {
+
+        width: 58%;
+
+        left: 21%;
+
+        top: 49%;
+
+        transform:
+            rotate(27deg);
+
+    }
+
+
+    .connecting-stars i {
+
+        font-size: 10px;
+
+    }
+
+
+    /* floating messages */
+
+    .distance-memory {
+
+        font-size: 12px;
+
+    }
+
+
+    .memory-one {
+
+        left: 3%;
+
+        top: 43%;
+
+    }
+
+
+    .memory-two {
+
+        right: 3%;
+
+        top: 35%;
+
+    }
+
+
+    .memory-three {
+
+        left: 5%;
+
+        bottom: 12%;
+
+    }
+
+
+    .memory-four {
+
+        right: 8%;
+
+        bottom: 18%;
+
+        font-size: 22px;
+
+    }
+
+
+    /* content */
+
+    .distance-inner {
+
+        width: 92vw;
+
+        padding:
+            20px 15px;
+
+    }
+
+
+    .distance-inner h2 {
+
+        font-size: 58px;
+
+        line-height: .84;
+
+        margin-bottom: 25px;
+
+    }
+
+
+    .distance-story {
+
+        font-size: 23px;
+
+        line-height: 1.3;
+
+    }
+
+
+    .distance-pause {
+
+        margin:
+            18px 0;
+
+    }
+
+
+    .distance-main-text {
+
+        font-size: 13px;
+
+        line-height: 1.65;
+
+        margin-bottom: 20px;
+
+    }
+
+
+    .distance-ending {
+
+        font-size: 20px;
+
+        line-height: 1.4;
+
+    }
+
+
+    .distance-heart {
+
+        margin-top: 20px;
+
+    }
+
+
+    .distance-heart span {
+
+        font-size: 34px;
+
+    }
+
+
+    .distance-heart p {
+
+        font-size: 16px;
+
+    }
+
+
+    .distance-bottom {
+
+        bottom: 14px;
+
+        font-size: 7px;
+
+        letter-spacing: 3px;
+
+    }
+
+    /* =====================================================
+   RURI · PHONE
+===================================================== */
+
+.ruri-section {
+    min-height: auto;
+    flex-direction: column;
+    text-align: center;
+    gap: 55px;
+    padding: 80px 22px;
+}
+
+.ruri-photo {
+    width: 82vw;
+    max-width: 360px;
+    transform: rotate(2deg);
+}
+
+.ruri-photo img {
+    aspect-ratio: 2.5 / 3.5;
+}
+
+.ruri-content {
+    width: 100%;
+    max-width: 100%;
+}
+
+.ruri-content h2 {
+    font-size: 62px;
+    line-height: .86;
+    margin-bottom: 30px;
+}
+
+.ruri-content > p:not(.chapter-label):not(.ruri-ending) {
+    font-size: 14px;
+    line-height: 1.85;
+}
+
+.ruri-line {
+    margin: 35px auto 22px;
+}
+
+.ruri-ending {
+    font-size: 23px;
+    line-height: 1.4;
+}
+
+
+/* RURI GAME */
+
+.ruri-game-section {
+    min-height: auto;
+    padding: 80px 20px;
+}
+
+.ruri-game {
+    width: 100%;
+}
+
+.ruri-game h2 {
+    font-size: 52px;
+    line-height: .9;
+    margin-bottom: 35px;
+}
+
+.ruri-answers {
+    grid-template-columns: 1fr;
+    gap: 12px;
+}
+
+.ruri-answer {
+    min-height: 70px;
+    padding: 17px 15px;
+    font-size: 20px;
+}
+
+.ruri-result {
+    font-size: 24px;
+    margin-top: 25px;
+}
+}
+
+/* =====================================================
+   FOUND YOU
+===================================================== */
+
+.found-section {
+    min-height: 120svh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #301722,
+            #09070a 65%
+        );
+}
+
+.found-stars {
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.7) 1px,
+            transparent 1px
+        );
+
+    background-size: 90px 90px;
+
+    opacity: .15;
+}
+
+.found-content {
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 700px;
+}
+
+.found-content h2 {
+    font-size: clamp(70px, 11vw, 130px);
+
+    line-height: .8;
+}
+
+.found-big {
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: clamp(75px, 12vw, 145px);
+
+    color: var(--pink);
+
+    font-style: italic;
+
+    line-height: .8;
+
+    margin: 40px 0;
+}
+
+.found-content > p:not(.chapter-label):not(.found-big):not(.wife-line) {
+    color: var(--muted);
+
+    line-height: 1.9;
+
+    margin-top: 25px;
+}
+
+.wife-line {
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 40px;
+
+    color: var(--cream);
+
+    margin-top: 60px;
+}
+
+
+/* =====================================================
+   FINAL GAME
+===================================================== */
+
+.final-game-section {
+    min-height: 100svh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 80px 20px;
+}
+
+.final-game {
+    width: min(800px, 100%);
+}
+
+.final-game h2 {
+    font-size: clamp(60px, 9vw, 105px);
+
+    line-height: .85;
+
+    margin-bottom: 60px;
+}
+
+.final-options {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 15px;
+}
+
+.final-option {
+    min-height: 100px;
+
+    border: 1px solid var(--border);
+
+    background: rgba(255,255,255,.025);
+
+    border-radius: 15px;
+
+    color: #d8ccd0;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 27px;
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+.final-option:hover {
+    border-color: var(--pink);
+
+    transform: translateY(-4px);
+}
+
+.final-answer {
+    min-height: 50px;
+
+    margin-top: 35px;
+
+    color: var(--pink);
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 30px;
+}
+
+
+/* =====================================================
+   LETTER
+===================================================== */
+
+.letter-section {
+    min-height: 120svh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 100px 20px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #302026,
+            #100b0e
+        );
+}
+
+.letter-paper {
+    width: min(700px, 92vw);
+
+    padding: clamp(35px, 7vw, 75px);
+
+    background: #eee2d2;
+
+    color: #352a2c;
+
+    transform: rotate(-1deg);
+
+    box-shadow:
+        0 40px 100px rgba(0,0,0,.6);
+}
+
+.letter-top {
+    text-transform: uppercase;
+
+    letter-spacing: 3px;
+
+    font-size: 9px;
+
+    margin-bottom: 35px;
+}
+
+.letter-paper h2 {
+    font-size: 65px;
+
+    margin-bottom: 40px;
+}
+
+.letter-paper p:not(.letter-top) {
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: clamp(21px, 3vw, 29px);
+
+    line-height: 1.5;
+
+    margin-bottom: 25px;
+}
+
+.letter-emphasis {
+    color: #a34f67;
+
+    font-size: 35px !important;
+
+    font-style: italic;
+}
+
+.signature {
+    font-family: "Parisienne", cursive;
+
+    color: #9b5368;
+
+    font-size: 38px;
+
+    margin-top: 50px;
+}
+
+
+/* =====================================================
+   FINAL
+===================================================== */
+
+.final-section {
+    min-height: 100svh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #2b151f,
+            #070608 70%
+        );
+}
+
+.final-content {
+    max-width: 800px;
+
+    position: relative;
+
+    z-index: 3;
+
+    padding: 30px;
+}
+
+.final-small {
+    color: #a9989e;
+
+    font-size: 15px;
+
+    line-height: 1.8;
+}
+
+.final-content h2 {
+    font-size: clamp(70px, 11vw, 135px);
+
+    line-height: .78;
+
+    margin: 50px 0;
+}
+
+.final-content h2 em {
+    color: var(--pink);
+
+    font-style: italic;
+}
+
+.final-content > p:not(.final-small) {
+    color: #a9989e;
+
+    line-height: 1.8;
+}
+
+.final-love {
+    font-family: "Cormorant Garamond", serif;
+
+    color: var(--pink);
+
+    font-size: 48px;
+
+    margin-top: 70px;
+}
+
+.final-signature {
+    margin-top: 25px;
+
+    color: #806e75;
+
+    font-family: "Parisienne", cursive;
+
+    font-size: 25px;
+}
+
+
+/* =====================================================
+   CONSTELLATION
+===================================================== */
+
+.constellation {
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+}
+
+.constellation span {
+    position: absolute;
+
+    color: white;
+
+    opacity: .4;
+
+    animation:
+        constellationTwinkle 5s infinite;
+}
+
+.constellation span:nth-child(1) {
+    top: 20%;
+    left: 30%;
+}
+
+.constellation span:nth-child(2) {
+    top: 28%;
+    left: 42%;
+}
+
+.constellation span:nth-child(3) {
+    top: 20%;
+    left: 55%;
+}
+
+.constellation span:nth-child(4) {
+    top: 35%;
+    left: 62%;
+}
+
+.constellation span:nth-child(5) {
+    top: 60%;
+    left: 35%;
+}
+
+.constellation span:nth-child(6) {
+    top: 70%;
+    left: 48%;
+}
+
+.constellation span:nth-child(7) {
+    top: 62%;
+    left: 62%;
+}
+
+.constellation span:nth-child(8) {
+    top: 45%;
+    left: 73%;
+}
+
+@keyframes constellationTwinkle {
+
+    0%,
+    100% {
+        opacity: .2;
+    }
+
+    50% {
+        opacity: .8;
+    }
+
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .memory-section,
+    .lake-section {
+        flex-direction: column;
+
+        text-align: center;
+
+        gap: 70px;
+    }
+
+    .memory-photo,
+    .lake-photo {
+        width: min(480px, 70vw);
+    }
+
+    .lake-line {
+        margin-left: auto;
+
+        margin-right: auto;
+    }
+
+    .dream-photo {
+        width: 28vw;
+    }
+
+    .distance-star small {
+    font-size: 8px;
+    letter-spacing: 3px;
+}
+
+.you-star {
+    left: 10%;
+    top: 22%;
+}
+
+.her-star {
+    right: 10%;
+    bottom: 22%;
+}
+
+.connecting-stars {
+    left: 18%;
+    right: 18%;
+    top: 50%;
+}
+
+.distance-inner {
+    padding: 25px 20px;
+}
+}
+
+
+/* =====================================================
+   PHONE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .music-button {
+        top: 15px;
+
+        right: 15px;
+
+        padding: 8px 11px;
+    }
+
+    .music-text {
+        display: none;
+    }
+
+    .hero h1 {
+        font-size: 70px;
+
+        letter-spacing: -2px;
+    }
+
+    .hero-description {
+        font-size: 14px;
+
+        margin: 40px auto;
+    }
+
+    .chapter,
+    .memory-section,
+    .lake-section {
+        padding: 80px 22px;
+    }
+
+    .chapter h2,
+    .memory-copy h2,
+    .lake-content h2 {
+        font-size: 65px;
+    }
+
+    .memory-photo,
+    .lake-photo {
+        width: 80vw;
+    }
+
+    .dream-photo {
+        width: 43vw;
+    }
+
+    .dream-one {
+        left: -5%;
+    }
+
+    .dream-two {
+        right: -5%;
+    }
+
+    .dream-center span {
+        font-size: 17px;
+    }
+
+    .dream-center h2 {
+        font-size: 100px;
+    }
+
+    .choice-grid,
+    .final-options {
+        grid-template-columns: 1fr;
+    }
+
+    .chapter-choice {
+        min-height: 100px;
+
+        font-size: 27px;
+    }
+
+    .skywalk-content {
+        padding: 25px;
+    }
+
+    .skywalk-content h2 {
+        font-size: 70px;
+    }
+
+    .husband-photo {
+        width: 70vw;
+    }
+
+    .question {
+        font-size: 30px;
+    }
+
+    .love-buttons {
+        position: relative;
+
+        min-height: 60px;
+    }
+
+    .letter-paper {
+        padding: 35px 25px;
+    }
+
+    .letter-paper h2 {
+        font-size: 55px;
+    }
+
+    .final-content h2 {
+        font-size: 75px;
+    }
+
+    .final-love {
+        font-size: 40px;
+    }
+
+    .distance-star small {
+    font-size: 8px;
+    letter-spacing: 3px;
+}
+
+.you-star {
+    left: 10%;
+    top: 22%;
+}
+
+.her-star {
+    right: 10%;
+    bottom: 22%;
+}
+
+.connecting-stars {
+    left: 18%;
+    right: 18%;
+    top: 50%;
+}
+
+.distance-inner {
+    padding: 25px 20px;
+}
+}
+
+
+/* =====================================================
+   REDUCED MOTION
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        scroll-behavior: auto !important;
+    }
+
+}
